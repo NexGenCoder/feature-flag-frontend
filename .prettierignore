@@ -1,0 +1,9 @@
+# Ignore artifacts:
+build
+coverage
+
+# Ignore specific files:
+config.json
+
+# Ignore node_modules
+node_modules
