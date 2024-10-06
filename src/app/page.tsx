@@ -1,7 +1,5 @@
+import LoginPage from '../app/LoginPage';
+
 export default function Home() {
-  return (
-    <div>
-      <h1>Feature Flag</h1>
-    </div>
-  );
+  return <LoginPage />;
 }
