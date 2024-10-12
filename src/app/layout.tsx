@@ -1,3 +1,4 @@
+"use client";
 import "./globals.css";
 import { Layout } from "antd";
 import { Content } from "antd/es/layout/layout";
