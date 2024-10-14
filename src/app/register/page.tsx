@@ -9,13 +9,12 @@ import {
   Input,
   Form,
   Image,
-  Checkbox,
   FormInstance,
 } from "antd";
 
 const { Title, Text, Link } = Typography;
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [form] = Form.useForm();
 
   const handleSubmit = (values: FormInstance[]) => {
@@ -44,10 +43,10 @@ export default function LoginPage() {
           data-testid="login-logo"
         />
         <Title level={3} data-testid="login-title">
-          Welcome Back
+          Getting Started
         </Title>
         <Text data-testid="login-subtitle">
-          Please enter your details to login
+          Please enter your details to register
         </Text>
         <Flex
           className="w-full !pt-4"
@@ -87,9 +86,39 @@ export default function LoginPage() {
           requiredMark={RequiredMark}
           data-testid="login-form"
         >
+          <Flex gap={3} className="w-full">
+            <Form.Item
+              label="First Name"
+              name="firstName"
+              rules={[
+                { required: true, message: "Please input your first name!" },
+              ]}
+            >
+              <Input
+                placeholder="First Name"
+                size="large"
+                data-testid="login-first-name-input"
+              />
+            </Form.Item>
+
+            <Form.Item
+              label="Last Name"
+              name="lastName"
+              rules={[
+                { required: true, message: "Please input your last name!" },
+              ]}
+            >
+              <Input
+                placeholder="Last Name"
+                size="large"
+                data-testid="login-last-name-input"
+              />
+            </Form.Item>
+          </Flex>
+
           <Form.Item
             label="Email"
-            name="loginId"
+            name="email"
             rules={[
               {
                 required: true,
@@ -118,20 +147,17 @@ export default function LoginPage() {
             />
           </Form.Item>
 
-          <Flex justify="space-between" align="center" className="mb-4">
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox data-testid="login-remember-checkbox">
-                Remember me
-              </Checkbox>
-            </Form.Item>
-            <Link
-              href="/forgot-password"
-              className="text-blue-500"
-              data-testid="login-forgot-password-link"
-            >
-              Forgot Password?
-            </Link>
-          </Flex>
+          <Form.Item
+            label="Confirm Password"
+            name="confirmPassword"
+            rules={[{ required: true, message: "Please input your password!" }]}
+          >
+            <Input.Password
+              placeholder="Confirm Password"
+              size="large"
+              data-testid="login-confirm-password-input"
+            />
+          </Form.Item>
 
           <Button
             type="primary"
@@ -144,14 +170,14 @@ export default function LoginPage() {
           </Button>
         </Form>
 
-        <Text className="mt-4 text-center" data-testid="login-signup-text">
-          Don&apos;t have an account?{" "}
+        <Text className="mt-4 text-center" data-testid="login-text">
+          Already have an account?{" "}
           <Link
-            href="/register"
+            href="/login"
             className="text-blue-500"
             data-testid="login-signup-link"
           >
-            Sign Up
+            Login
           </Link>
         </Text>
       </Flex>
